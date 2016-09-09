@@ -1,0 +1,114 @@
+use 5.006;    # our
+use strict;
+use warnings;
+
+package Dist::Zilla::Plugin::Regenerate;
+
+our $VERSION = '0.001000';
+
+# ABSTRACT: Write contents to your source tree explicitly
+
+# AUTHORITY
+
+use Moose qw( with has around );
+use Beam::Event qw();
+use Beam::Emitter qw();
+use Path::Tiny 0.017 qw( path );
+use namespace::clean -except => 'meta';
+
+with qw/ Dist::Zilla::Role::Plugin Dist::Zilla::Role::Regenerator Beam::Emitter /;
+
+has filenames => ( is => 'ro', isa => 'ArrayRef', default => sub { [] }, );
+
+around dump_config => sub {
+  my ( $orig, $self, @args ) = @_;
+  my $config = $self->$orig(@args);
+  my $payload = $config->{ +__PACKAGE__ } = {};
+  $payload->{filenames} = $self->filenames;
+
+  ## no critic (RequireInterpolationOfMetachars)
+  # Self report when inherited
+  $payload->{ q[$] . __PACKAGE__ . '::VERSION' } = $VERSION unless __PACKAGE__ eq ref $self;
+  return $config;
+};
+
+no Moose;
+__PACKAGE__->meta->make_immutable;
+
+=for Pod::Coverage mvp_multivalue_args mvp_aliases regenerate
+
+=cut
+
+sub mvp_multivalue_args { qw( filenames ) }
+sub mvp_aliases { +{ filename => 'filenames' } }
+
+sub regenerate {
+  my ( $self, $config ) = @_;
+  $self->emit( 'before_regenerate', class => 'Dist::Zilla::Event::Regenerate::BeforeRegenerate', %{$config} );
+
+  # Note, that because dzil is build -> dir -> archive -> release
+  # regenerate has to pick files from the "dir" target on disk, and can't go through
+  # dzil IO
+  for my $file ( @{ $self->filenames } ) {
+    my $src  = path( $config->{build_root}, $file );
+    my $dest = path( $config->{root},       $file );
+    $src->copy($dest);
+    $self->log("Copied $src to $dest");
+  }
+
+  $self->emit( 'after_regenerate', class => 'Dist::Zilla::Event::Regenerate::AfterRegenerate', %{$config} );
+}
+
+{
+  package    # Hide
+    Dist::Zilla::Event::Regenerate::BeforeRegenerate;
+  use Moose qw( has extends );
+  extends q/Beam::Event/;
+
+  has 'build_root' => ( isa => 'Str', is => 'ro', required => 1 );
+  has 'root'       => ( isa => 'Str', is => 'ro', required => 1 );
+  no Moose;
+  __PACKAGE__->meta->make_immutable;
+}
+{
+  package    # Hide
+    Dist::Zilla::Event::Regenerate::AfterRegenerate;
+  use Moose qw( has extends );
+  extends q/Beam::Event/;
+
+  has 'build_root' => ( isa => 'Str', is => 'ro', required => 1 );
+  has 'root'       => ( isa => 'Str', is => 'ro', required => 1 );
+  no Moose;
+  __PACKAGE__->meta->make_immutable;
+}
+
+1;
+
+=head1 SYNOPSIS
+
+B<in C<dist.ini>>
+
+  [Regenerate]
+  ; For example
+  filenames = Makefile.PL
+  filenames = META.json
+  filenames = README.mkdn
+
+B<on your command line>
+
+  dzil regenerate
+  # Makefile.PL updated
+  # META.json updated
+  # ...
+
+=head1 DESCRIPTION
+
+This plugin, in conjunction with the L<< C<dzil regenerate>|Dist::Zilla::App::Command::regenerate >>
+command, allows turn-key copying of content from your build tree to your source tree.
+
+This is a compatriot of L<< C<[CopyFilesFromBuild]>|Dist::Zilla::Plugin::CopyFilesFromBuild >> and
+L<< C<[CopyFilesFromRelease]>|Dist::Zilla::Plugin::CopyFilesFromRelease >>, albeit targeted to happen
+outside your standard work phase, allowing you to copy generated files back into the source tree on demand,
+and also freeing you from them being updated when you don't require it.
+
+
