@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
     "Moose" => 0,
     "Moose::Role" => 0,
     "Path::Tiny" => "0.017",
+    "Safe::Isa" => 0,
     "namespace::clean" => 0,
     "strict" => 0,
     "warnings" => 0
@@ -35,11 +36,12 @@ my %WriteMakefileArgs = (
     "File::Spec" => 0,
     "Test::DZil" => 0,
     "Test::More" => "0.89",
+    "Test::Needs" => 0,
     "Test::TempDir::Tiny" => 0
   },
   "VERSION" => "0.001000",
   "test" => {
-    "TESTS" => "t/*.t t/00-compile/*.t"
+    "TESTS" => "t/*.t t/00-compile/*.t t/plugin/*.t"
   }
 );
 
@@ -56,8 +58,10 @@ my %FallbackPrereqs = (
   "Moose" => 0,
   "Moose::Role" => 0,
   "Path::Tiny" => "0.017",
+  "Safe::Isa" => 0,
   "Test::DZil" => 0,
   "Test::More" => "0.89",
+  "Test::Needs" => 0,
   "Test::TempDir::Tiny" => 0,
   "namespace::clean" => 0,
   "strict" => 0,
