@@ -8,6 +8,7 @@ build_requires:
   File::Spec: '0'
   Test::DZil: '0'
   Test::More: '0.89'
+  Test::Needs: '0'
   Test::TempDir::Tiny: '0'
   perl: '5.006'
 configure_requires:
@@ -27,6 +28,9 @@ provides:
   Dist::Zilla::Plugin::Regenerate:
     file: lib/Dist/Zilla/Plugin/Regenerate.pm
     version: '0.001000'
+  Dist::Zilla::Plugin::Regenerate::AfterReleasers:
+    file: lib/Dist/Zilla/Plugin/Regenerate/AfterReleasers.pm
+    version: '0.001000'
   Dist::Zilla::Role::Regenerator:
     file: lib/Dist/Zilla/Role/Regenerator.pm
     version: '0.001000'
@@ -42,6 +46,7 @@ requires:
   Moose: '0'
   Moose::Role: '0'
   Path::Tiny: '0.017'
+  Safe::Isa: '0'
   namespace::clean: '0'
   perl: '5.006'
   strict: '0'
