@@ -127,6 +127,22 @@ and also freeing you from them being updated when you don't require it.
 
 =for Pod::Coverage mvp_multivalue_args mvp_aliases regenerate
 
+=head1 SEE ALSO
+
+=over 4
+
+=item *  L<< C<[CopyFilesFromBuild]>|Dist::Zilla::Plugin::CopyFilesFromBuild >>
+
+This plugin operates only on the C<AfterBuild> phase, and thus will modify files on every
+C<dzil build>, creating undesired work-flow churn.
+
+=item * L<< C<[CopyFilesFromRelease]>|Dist::Zilla::Plugin::CopyFilesFromRelease >>
+
+This plugin operates only on the C<AfterRelease> phase, impeding work-flow slightly
+for people who B<WANT> to update their source tree without actually doing a release.
+
+=back
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
