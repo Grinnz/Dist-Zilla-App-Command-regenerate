@@ -42,6 +42,15 @@ In effect, `dzil regenerate` is a lot like:
 
 Where those last 2 lines are done with `plugins`.
 
+# SEE ALSO
+
+- [`dzil update`](https://metacpan.org/pod/Dist::Zilla::App::Command::update)
+
+    This command invokes only the `dzil build` parts of the equation and rely `dzil build`
+    itself doing your source tree modification.
+
+    A goal of `dzil regenerate` is to avoid `dzil build` doing source tree modification.
+
 # AUTHOR
 
 Kent Fredric <kentnl@cpan.org>

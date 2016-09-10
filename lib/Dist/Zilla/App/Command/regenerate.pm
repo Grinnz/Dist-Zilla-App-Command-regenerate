@@ -83,3 +83,15 @@ In effect, C<dzil regenerate> is a lot like:
 
 Where those last 2 lines are done with C<plugins>.
 
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<< C<dzil update>|Dist::Zilla::App::Command::update >>
+
+This command invokes only the C<dzil build> parts of the equation and rely C<dzil build>
+itself doing your source tree modification.
+
+A goal of C<dzil regenerate> is to avoid C<dzil build> doing source tree modification.
+
+=back
