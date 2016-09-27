@@ -92,6 +92,18 @@ and may be subject to change if it turns out to be a bad idea.
 
 =for Pod::Coverage mvp_multivalue_args mvp_aliases regenerate
 
+=head1 ATTRIBUTES
+
+=head2 plugins
+
+An Array of Strings of C<PluginName>
+
+  [Regenerate]
+  plugin = pluginName
+  plugin = pluginName
+
+B<aliases:> C<plugin>
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
