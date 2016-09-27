@@ -111,6 +111,18 @@ L<< C<[CopyFilesFromRelease]>|Dist::Zilla::Plugin::CopyFilesFromRelease >>, albe
 outside your standard work phase, allowing you to copy generated files back into the source tree on demand,
 and also freeing you from them being updated when you don't require it.
 
+=head1 ATTRIBUTES
+
+=head2 C<filenames>
+
+An Array of Strings describing files to copy.
+
+  [Regenerate]
+  filename = Makefile.PL
+  filename = META.json
+
+B<aliases:> C<filename>
+
 =head1 SEE ALSO
 
 =over 4
