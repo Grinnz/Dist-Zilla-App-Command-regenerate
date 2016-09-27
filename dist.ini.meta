@@ -21,3 +21,5 @@ srcreadme         = mkdn
 
 [Prereqs]
 
+[Prereqs / DevelopRequires]
+Dist::Zilla::Plugin::CopyFilesFromRelease = 0

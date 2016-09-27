@@ -1,6 +1,9 @@
 Release history for Dist-Zilla-App-Command-regenerate
 
 {{$NEXT}}
+ [Dependencies::Stats]
+ - Dependencies changed since 0.001000, see misc/*.deps* for details
+ - develop: +1
 
 0.001000 2016-09-27T20:30:43Z f09ad86
  - First version.
