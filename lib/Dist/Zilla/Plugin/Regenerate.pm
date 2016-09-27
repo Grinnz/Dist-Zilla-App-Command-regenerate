@@ -127,6 +127,18 @@ and also freeing you from them being updated when you don't require it.
 
 =for Pod::Coverage mvp_multivalue_args mvp_aliases regenerate
 
+=head1 ATTRIBUTES
+
+=head2 C<filenames>
+
+An Array of Strings describing files to copy.
+
+  [Regenerate]
+  filename = Makefile.PL
+  filename = META.json
+
+B<aliases:> C<filename>
+
 =head1 SEE ALSO
 
 =over 4
