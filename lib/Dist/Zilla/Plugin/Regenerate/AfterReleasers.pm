@@ -75,3 +75,15 @@ methods called in the stated order.
 
 B<Note:> They are executed in C<STATED> order, B<NOT> the order in C<dist.ini>. This may be seen as a bug or a feature,
 and may be subject to change if it turns out to be a bad idea.
+
+=head1 ATTRIBUTES
+
+=head2 plugins
+
+An Array of Strings of C<PluginName>
+
+  [Regenerate]
+  plugin = pluginName
+  plugin = pluginName
+
+B<aliases:> C<plugin>
