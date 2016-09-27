@@ -17,8 +17,8 @@ my @files = (
     't/00-compile/lib_Dist_Zilla_Role_Regenerator_pm.t',
     't/00-report-prereqs.dd',
     't/00-report-prereqs.t',
-    't/basic.t',
-    't/plugin/afterreleasers.t'
+    't/plugin/afterreleasers.t',
+    't/plugin/regenerate.t'
 );
 
 eol_unix_ok($_, { trailing_whitespace => 1 }) foreach @files;
