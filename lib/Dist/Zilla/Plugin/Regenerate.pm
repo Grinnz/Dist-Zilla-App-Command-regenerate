@@ -141,6 +141,9 @@ C<dzil build>, creating undesired work-flow churn.
 This plugin operates only on the C<AfterRelease> phase, impeding work-flow slightly
 for people who B<WANT> to update their source tree without actually doing a release.
 
+This plugin can be used instead of C<[Regenerate]> though, by using it in conjunction
+with L<< C<[Regenerate::AfterReleasers]>|Dist::Zilla::Plugin::Regenerate::AfterReleasers >>
+
 =back
 
 =head1 AUTHOR
