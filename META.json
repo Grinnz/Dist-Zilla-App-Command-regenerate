@@ -37,6 +37,7 @@
             "Dist::Zilla::Plugin::Bootstrap::lib" : "0",
             "Dist::Zilla::Plugin::BumpVersionAfterRelease" : "0",
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
+            "Dist::Zilla::Plugin::CopyFilesFromRelease" : "0",
             "Dist::Zilla::Plugin::Git::Check" : "0",
             "Dist::Zilla::Plugin::Git::Commit" : "0",
             "Dist::Zilla::Plugin::Git::CommitBuild" : "0",
@@ -136,19 +137,19 @@
    "provides" : {
       "Dist::Zilla::App::Command::regenerate" : {
          "file" : "lib/Dist/Zilla/App/Command/regenerate.pm",
-         "version" : "0.001000"
+         "version" : "0.001001"
       },
       "Dist::Zilla::Plugin::Regenerate" : {
          "file" : "lib/Dist/Zilla/Plugin/Regenerate.pm",
-         "version" : "0.001000"
+         "version" : "0.001001"
       },
       "Dist::Zilla::Plugin::Regenerate::AfterReleasers" : {
          "file" : "lib/Dist/Zilla/Plugin/Regenerate/AfterReleasers.pm",
-         "version" : "0.001000"
+         "version" : "0.001001"
       },
       "Dist::Zilla::Role::Regenerator" : {
          "file" : "lib/Dist/Zilla/Role/Regenerator.pm",
-         "version" : "0.001000"
+         "version" : "0.001001"
       }
    },
    "release_status" : "stable",
@@ -163,7 +164,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-App-Command-regenerate"
       }
    },
-   "version" : "0.001000",
+   "version" : "0.001001",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -355,11 +356,11 @@
                   ]
                },
                "Dist::Zilla::Role::Regenerator" : {
-                  "$Dist::Zilla::Role::Regenerator::VERSION" : "0.001000"
+                  "$Dist::Zilla::Role::Regenerator::VERSION" : "0.001001"
                }
             },
             "name" : "Regenerate",
-            "version" : "0.001000"
+            "version" : "0.001001"
          },
          {
             "class" : "Dist::Zilla::Plugin::Regenerate::AfterReleasers",
@@ -370,11 +371,11 @@
                   ]
                },
                "Dist::Zilla::Role::Regenerator" : {
-                  "$Dist::Zilla::Role::Regenerator::VERSION" : "0.001000"
+                  "$Dist::Zilla::Role::Regenerator::VERSION" : "0.001001"
                }
             },
             "name" : "Regenerate::AfterReleasers",
-            "version" : "0.001000"
+            "version" : "0.001001"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",
@@ -728,7 +729,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "0.001000-source",
+                  "tag" : "0.001001-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v"
                },
@@ -819,7 +820,7 @@
                   "branch" : "releases",
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "0.001000",
+                  "tag" : "0.001001",
                   "tag_format" : "%v",
                   "tag_message" : "v%v"
                },
@@ -909,6 +910,17 @@
                }
             },
             "name" : "Prereqs",
+            "version" : "6.007"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "develop",
+                  "type" : "requires"
+               }
+            },
+            "name" : "DevelopRequires",
             "version" : "6.007"
          },
          {

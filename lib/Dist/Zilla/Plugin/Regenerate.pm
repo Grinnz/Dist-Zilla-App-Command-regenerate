@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Regenerate;
 
-our $VERSION = '0.001000';
+our $VERSION = '0.001001';
 
 # ABSTRACT: Write contents to your source tree explicitly
 
@@ -96,7 +96,7 @@ Dist::Zilla::Plugin::Regenerate - Write contents to your source tree explicitly
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
