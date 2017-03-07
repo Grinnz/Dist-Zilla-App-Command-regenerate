@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::Regenerator;
 
-our $VERSION = '0.001001';
+our $VERSION = '0.001002';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -40,7 +40,7 @@ Dist::Zilla::Role::Regenerator - A package which can regenerate source files
 
 =head1 VERSION
 
-version 0.001001
+version 0.001002
 
 =head1 SYNOPSIS
 
