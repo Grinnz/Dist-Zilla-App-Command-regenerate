@@ -4,7 +4,7 @@ Dist::Zilla::App::Command::regenerate - Write content into your source tree from
 
 # VERSION
 
-version 0.001001
+version 0.001002
 
 # SYNOPSIS
 
