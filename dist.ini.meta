@@ -6,7 +6,15 @@ license          = Perl_5
 copyright_holder = Kent Fredric <kentfredric@gmail.com>
 
 ; Uncomment this to bootstrap via self
-; [Bootstrap::lib]
+[lib]
+lib = lib
+
+[Regenerate]
+filename = LICENSE
+filename = Makefile.PL
+
+[Regenerate::AfterReleasers]
+plugin = @Author::KENTNL/ReadmeAnyFromPod
 
 [@Author::KENTNL]
 :version          = 2.025020
@@ -16,6 +24,8 @@ toolkit           = eumm
 toolkit_hardness  = soft
 bumpversions      = 1
 srcreadme         = mkdn
+-remove  = CopyFilesFromBuild
+ReadmeAnyFromPod.phase=release
 ; twitter_extra_hash_tags =
 ; auto_prereqs_skip = File::Find
 
