@@ -30,7 +30,7 @@ no Moose::Role;
 
 =head1 SYNOPSIS
 
-  pacakge Dist::Zilla::Plugin::Regenerate::SomeThing;
+  package Dist::Zilla::Plugin::Regenerate::SomeThing;
   use Moose;
   use Path::Tiny qw( path );
   with "Dist::Zilla::Role::Plugin","Dist::Zilla::Role::Regenerator";
