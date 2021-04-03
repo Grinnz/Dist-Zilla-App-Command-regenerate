@@ -20,7 +20,7 @@ This works by producing a new synthetic target like the `release` target, which 
 after the `build` stage, but does not produce a release.
 
 In conjunction with appropriate `plugins` performing
-[`-Regenerator`](https://metacpan.org/pod/Dist::Zilla::Role::Regenerator), This means that:
+[`-Regenerator`](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3ARole%3A%3ARegenerator), This means that:
 
 - You won't be frustrated with `dzil build` constantly tweaking your source tree
 - You won't be forced to ship a release just to update the state of some files that are generated
@@ -44,7 +44,7 @@ Where those last 2 lines are done with `plugins`.
 
 # SEE ALSO
 
-- [`dzil update`](https://metacpan.org/pod/Dist::Zilla::App::Command::update)
+- [`dzil update`](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3AApp%3A%3ACommand%3A%3Aupdate)
 
     This command invokes only the `dzil build` parts of the equation and rely `dzil build`
     itself doing your source tree modification.
@@ -57,7 +57,7 @@ Kent Fredric <kentnl@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2016-2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
