@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::Regenerator;
 
-our $VERSION = '0.001002';
+our $VERSION = '0.001003';
 
 # AUTHORITY
 

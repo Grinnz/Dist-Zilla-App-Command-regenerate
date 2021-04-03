@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::Regenerate::AfterReleasers;
 
-our $VERSION = '0.001002';
+our $VERSION = '0.001003';
 
 # ABSTRACT: Tickle plugins that do "AfterRelease" from regenerate
 
